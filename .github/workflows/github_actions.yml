@@ -52,5 +52,6 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repository: edoapra/nwchem.wiki
+          github_token: "e5d5b499a7e9acbe189bdb5d06d7ae423ee169ed"
           branch: ${{ github.ref }}
