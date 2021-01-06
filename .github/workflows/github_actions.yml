@@ -40,6 +40,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: edoapra/nwchem.wiki
+          persist-credentials: false
           fetch-depth: 0
       - name: fetch and merge
         run: |
@@ -55,5 +56,5 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           repository: edoapra/nwchem.wiki
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.REPOSITORY_TOKEN }}
           branch: ${{ github.ref }}
