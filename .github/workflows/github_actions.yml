@@ -5,7 +5,11 @@ on: [push, pull_request]
 jobs:
   wiki_mirroring:
     runs-on: [ubuntu-latest]  
-    steps: 
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Checkout nwchem-wiki
         uses: actions/checkout@v2
         with:
@@ -22,5 +26,10 @@ jobs:
           git fetch origin
           git fetch upstream
           git merge upstream/master --no-edit
-          git push origin HEAD:master > /dev/null 2>&1
-          git push upstream HEAD:master > /dev/null 2>&1
+#          git push origin HEAD:master > /dev/null 2>&1
+#          git push upstream HEAD:master > /dev/null 2>&1
+      - name: Push changes
+          uses: ad-m/github-push-action@master
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: ${{ github.ref }}
