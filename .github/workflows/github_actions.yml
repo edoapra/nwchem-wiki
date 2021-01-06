@@ -13,7 +13,10 @@ jobs:
       - name: Checkout nwchem-wiki
         uses: actions/checkout@v2
         with:
-          repository: edoapra/nwchem-wiki    
+          repository: edoapra/nwchem-wiki
+          persist-credentials: false
+          # Otherwise, you will failed to push refs to dest repo.
+          fetch-depth: 0
       - name: fetch and merge
         run: |
           env|egrep GITHU
