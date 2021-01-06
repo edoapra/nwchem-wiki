@@ -11,6 +11,8 @@ jobs:
         with:
           repository: edoapra/nwchem-wiki
           persist-credentials: false
+          # Otherwise, you will fail to push refs to dest repo.
+          fetch-depth: 0
       - name: fetch and merge
         run: |
           env|egrep GITHU
@@ -30,15 +32,17 @@ jobs:
   mirorr_repo2dotwiki:
     runs-on: [ubuntu-latest]  
     steps:
-     - name: Sleep for 20s
-       uses: juliangruber/sleep-action@v1
-       with:
-         time: 20s
+      - name: Sleep for 20s
+        uses: juliangruber/sleep-action@v1
+        with:
+          time: 20s
       - name: Checkout nwchem-wiki
         uses: actions/checkout@v2
         with:
           repository: edoapra/nwchem.wiki
           persist-credentials: false
+          # Otherwise, you will fail to push refs to dest repo.
+          fetch-depth: 0
       - name: fetch and merge
         run: |
           env|egrep GITHU
