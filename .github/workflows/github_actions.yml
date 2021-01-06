@@ -23,14 +23,14 @@ jobs:
           git config user.name "edoapra"
           git config user.email "edoardo.apra@gmail.com"
           git remote remove origin
-          git remote add origin git@github.com/edoapra/nwchem-wiki.git > /dev/null 2>&1
-          git remote add upstream git@github.com/edoapra/nwchem.wiki.git > /dev/null 2>&1
+          git remote add origin git@github.com:edoapra/nwchem-wiki.git > /dev/null 2>&1
+          git remote add upstream git@github.com:edoapra/nwchem.wiki.git > /dev/null 2>&1
           git remote -v
           git pull
           echo pull done
           git fetch origin
           echo fetch origin done
-          git fetch upstream
+          git fetch upstream/master
           echo fetch upstream done
           git merge upstream/master --no-edit
 #          git push origin HEAD:master > /dev/null 2>&1
