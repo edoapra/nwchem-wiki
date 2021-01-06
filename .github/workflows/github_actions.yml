@@ -22,6 +22,7 @@ jobs:
           git config user.email "edoardo.apra@gmail.com"
           git config pull.rebase false
           git remote add upstream https://github.com/edoapra/nwchem.wiki > /dev/null 2>&1
+          git remote -v
           git fetch origin
           git fetch upstream
           git merge upstream/master --no-edit
@@ -46,6 +47,7 @@ jobs:
           git config user.email "edoardo.apra@gmail.com"
           git config pull.rebase false
           git remote add upstream https://github.com/edoapra/nwchem-wiki > /dev/null 2>&1
+          git remote -v
           git fetch origin
           git fetch upstream
           git merge upstream/master --no-edit
