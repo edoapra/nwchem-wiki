@@ -31,9 +31,9 @@ jobs:
     runs-on: [ubuntu-latest]  
     steps:
      - name: Sleep for 20s
-        uses: juliangruber/sleep-action@v1
-        with:
-          time: 20s
+       uses: juliangruber/sleep-action@v1
+       with:
+         time: 20s
       - name: Checkout nwchem-wiki
         uses: actions/checkout@v2
         with:
