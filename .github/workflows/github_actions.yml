@@ -11,6 +11,8 @@ jobs:
         with:
           repository: edoapra/nwchem-wiki
           persist-credentials: false
+          # Otherwise, you will fail to push refs to dest repo.
+          fetch-depth: 0
       - name: fetch and merge
         run: |
           git config user.name "edoapra"
@@ -35,6 +37,8 @@ jobs:
         with:
           repository: edoapra/nwchem.wiki
           persist-credentials: false
+          # Otherwise, you will fail to push refs to dest repo.
+          fetch-depth: 0
       - name: fetch and merge
         run: |
           git config user.name "edoapra"
