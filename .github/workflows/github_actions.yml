@@ -3,7 +3,7 @@ name: NWChem-wiki.mirroring
 on: [push, pull_request]
 
 jobs:
-  wiki_mirroring:
+  mirorr_dotwiki2repo:
     runs-on: [ubuntu-latest]  
     steps:
       - name: Dump GitHub context
@@ -30,13 +30,53 @@ jobs:
           git fetch origin
           echo fetch origin done
           git fetch upstream
-          echo merge upstream done
+          echo fetch upstream done
           git merge upstream/master --no-edit
-          git push origin HEAD:master > /dev/null 2>&1
-          git push upstream HEAD:master > /dev/null 2>&1
+          echo merge upstream done
+#          git push origin HEAD:master > /dev/null 2>&1
+#          git push upstream HEAD:master > /dev/null 2>&1
 
-#      - name: Push changes
-#        uses: ad-m/github-push-action@master
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
-#          branch: ${{ github.ref }}
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+            
+  mirorr_repo2dotwiki:
+    runs-on: [ubuntu-latest]  
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Checkout nwchem-wiki
+        uses: actions/checkout@v2
+        with:
+          repository: edoapra/nwchem.wiki
+          persist-credentials: false
+          # Otherwise, you will fail to push refs to dest repo.
+          fetch-depth: 0
+      - name: fetch and merge
+        run: |
+          env|egrep GITHU
+          git config user.name "edoapra"
+          git config user.email "edoardo.apra@gmail.com"
+          git config pull.rebase false
+          git remote add upstream https://github.com/edoapra/nwchem-wiki > /dev/null 2>&1
+          git remote -v
+          git pull
+          echo pull done
+          git fetch origin
+          echo fetch origin done
+          git fetch upstream
+          echo fetch upstream done
+          git merge upstream/master --no-edit
+          echo merge upstream done
+#          git push origin HEAD:master > /dev/null 2>&1
+#          git push upstream HEAD:master > /dev/null 2>&1
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
