@@ -23,7 +23,7 @@ jobs:
           git config user.name "edoapra"
           git config user.email "edoardo.apra@gmail.com"
           git config pull.rebase false
-          git remote add upstream https://github.com/edoapra/nwchem.wiki.git > /dev/null 2>&1
+          git remote add upstream https://github.com/edoapra/nwchem.wiki > /dev/null 2>&1
           git remote -v
           git pull
           echo pull done
