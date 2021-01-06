@@ -32,11 +32,11 @@ jobs:
           git fetch upstream
           echo merge upstream done
           git merge upstream/master --no-edit
-#          git push origin HEAD:master > /dev/null 2>&1
-#          git push upstream HEAD:master > /dev/null 2>&1
+          git push origin HEAD:master > /dev/null 2>&1
+          git push upstream HEAD:master > /dev/null 2>&1
 
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+#      - name: Push changes
+#        uses: ad-m/github-push-action@master
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          branch: ${{ github.ref }}
