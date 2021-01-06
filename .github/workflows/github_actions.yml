@@ -10,8 +10,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: edoapra/nwchem-wiki
-          persist-credentials: false
-          # Otherwise, you will fail to push refs to dest repo.
           fetch-depth: 0
       - name: fetch and merge
         run: |
@@ -36,8 +34,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: edoapra/nwchem.wiki
-          persist-credentials: false
-          # Otherwise, you will fail to push refs to dest repo.
           fetch-depth: 0
       - name: fetch and merge
         run: |
