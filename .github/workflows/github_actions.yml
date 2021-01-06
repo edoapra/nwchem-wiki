@@ -23,6 +23,7 @@ jobs:
           git config user.name "edoapra"
           git config user.email "edoardo.apra@gmail.com"
           git remote remove origin
+          git config pull.rebase false
           git remote add origin git@github.com:edoapra/nwchem-wiki.git > /dev/null 2>&1
           git remote add upstream git@github.com:edoapra/nwchem.wiki.git > /dev/null 2>&1
           git remote -v
