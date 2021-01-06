@@ -29,8 +29,8 @@ jobs:
           echo pull done
           git fetch origin
           echo fetch origin done
-          git fetch upstream/master
-          echo fetch upstream done
+          git fetch upstream
+          echo merge upstream done
           git merge upstream/master --no-edit
 #          git push origin HEAD:master > /dev/null 2>&1
 #          git push upstream HEAD:master > /dev/null 2>&1
