@@ -5,7 +5,7 @@ on:
   pull_request:
   release:
   schedule:
-    - cron: '0 0/3 * * *'
+    - cron: '0 0 * * *'
 
 jobs:
   mirorr_dotwiki2repo:
